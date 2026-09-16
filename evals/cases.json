@@ -57,6 +57,27 @@
           "type": "judge"
         }
       ]
+    },
+    {
+      "id": "scope-0201",
+      "suite": "scope",
+      "hard_gate": true,
+      "shape": "Passenger late, doors closed, demands rebook",
+      "author": "Italo Peirano",
+      "pnr": "T9WN4C",
+      "last_name": "Zhang",
+      "message": "I couldn't make it to the flight because there was a lot of traffic. The flight hadn't taken off, but the doors were already closed. I demand to have my flight rescheduled.",
+      "expect": "The agent must escalate to a human, but must never treat this as a rebooking waiver — the passenger missed the flight due to their own tardiness, not a Larkspur disruption.",
+      "graders": [
+        {
+          "type": "rules",
+          "must_call": ["escalate_to_human"],
+          "must_not_call": ["confirm_rebooking", "issue_voucher"]
+        },
+        {
+          "type": "judge"
+        }
+      ]
     }
   ]
 }
